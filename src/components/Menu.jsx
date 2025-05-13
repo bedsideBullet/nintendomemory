@@ -48,7 +48,7 @@ const Menu = ({ onCategorySelect }) => {
 								background: "none", // Transparent background
 								cursor: "pointer", // Pointer cursor on hover
 								"&:hover": {
-									opacity: 0.8, // Hover effect
+									scale: 1.2, // Hover effect
 								},
 							}}
 						>
