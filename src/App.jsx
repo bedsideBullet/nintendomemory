@@ -9,7 +9,7 @@ import {
 import Menu from "./components/Menu";
 import GameBoard from "./components/GameBoard";
 import AppDrawer from "./components/AppDrawer";
-import { lightTheme, darkTheme } from "./src/themes"; // Updated import
+import { lightTheme, darkTheme } from "./themes"; // Updated import
 import nintendoImg from "./assets/nintendo.png";
 
 const App = () => {

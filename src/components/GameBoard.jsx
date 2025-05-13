@@ -313,7 +313,7 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 							display: "flex",
 							justifyContent: "center",
 							alignItems: "center",
-							maxWidth: "500px",
+							maxWidth: "600px",
 							width: "100%", // Ensure it takes full available width for centering
 							margin: "0 auto", // Center horizontally within the grid
 							fontSize: "2rem",
