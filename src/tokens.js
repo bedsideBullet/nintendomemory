@@ -60,62 +60,62 @@ const tokens = [
 	// Category 2
 	{
 		id: 13,
-		image: "https://via.placeholder.com/150?text=Token+1",
+		image: "src/assets/krankyKong.png",
 		category: "2",
 	},
 	{
 		id: 14,
-		image: "https://via.placeholder.com/150?text=Token+2",
+		image: "src/assets/nLetter.png",
 		category: "2",
 	},
 	{
 		id: 15,
-		image: "https://via.placeholder.com/150?text=Token+3",
+		image: "src/assets/oLetter.png",
 		category: "2",
 	},
 	{
 		id: 16,
-		image: "https://via.placeholder.com/150?text=Token+4",
+		image: "src/assets/pirateKRool.png",
 		category: "2",
 	},
 	{
 		id: 17,
-		image: "https://via.placeholder.com/150?text=Token+5",
+		image: "src/assets/donkeyKong.png",
 		category: "2",
 	},
 	{
 		id: 18,
-		image: "https://via.placeholder.com/150?text=Token+6",
+		image: "src/assets/diddyKong.png",
 		category: "2",
 	},
 	{
 		id: 19,
-		image: "https://via.placeholder.com/150?text=Token+7",
+		image: "src/assets/kLetter.png",
 		category: "2",
 	},
 	{
 		id: 20,
-		image: "https://via.placeholder.com/150?text=Token+8",
+		image: "src/assets/gLetter.png",
 		category: "2",
 	},
 	{
 		id: 21,
-		image: "https://via.placeholder.com/150?text=Token+9",
+		image: "src/assets/dkcBalloons.png",
 		category: "2",
 	},
 	{
 		id: 22,
-		image: "https://via.placeholder.com/150?text=Token+10",
+		image: "src/assets/funkyKong.png",
 		category: "2",
 	},
 	{
 		id: 23,
-		image: "https://via.placeholder.com/150?text=Token+11",
+		image: "src/assets/babyKong.png",
 		category: "2",
 	},
 	{
 		id: 24,
-		image: "https://via.placeholder.com/150?text=Token+12",
+		image: "src/assets/banannaBird.png",
 		category: "2",
 	},
 

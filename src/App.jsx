@@ -9,19 +9,19 @@ import {
 import Menu from "./components/Menu";
 import GameBoard from "./components/GameBoard";
 import AppDrawer from "./components/AppDrawer";
-import { lightTheme, darkTheme } from "./themes"; 
+import { lightTheme, darkTheme } from "./themes";
 import nintendoImgD from "./assets/dNintendo.png";
 import nintendoImgL from "./assets/Nintendo.png";
 
 const App = () => {
-	const [currentTheme, setCurrentTheme] = useState(lightTheme); 
+	const [currentTheme, setCurrentTheme] = useState(lightTheme);
 	const [selectedCategory, setSelectedCategory] = useState(null);
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	const [highScores, setHighScores] = useState([]);
 
 	const handleCategorySelect = (category) => setSelectedCategory(category);
 
-	const nintendoImg = currentTheme === lightTheme ? nintendoImgL : nintendoImgD
+	const nintendoImg = currentTheme === lightTheme ? nintendoImgL : nintendoImgD;
 
 	const handleThemeSelect = (themeName) => {
 		switch (themeName) {
@@ -48,14 +48,14 @@ const App = () => {
 				style={{
 					textAlign: "center",
 					padding: "20px",
-					backgroundImage: currentTheme.backgroundImage, 
-					backgroundSize: "cover", 
-					backgroundPosition: "center", 
-					backgroundRepeat: "no-repeat", 
-					backgroundAttachment: "fixed", 
+					backgroundImage: currentTheme.backgroundImage,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+					backgroundRepeat: "no-repeat",
+					backgroundAttachment: "fixed",
 					minHeight: "100vh",
-					transition: "background-image 0.3s ease-in-out", 
-					color: currentTheme.palette.text.primary, 
+					transition: "background-image 0.3s ease-in-out",
+					color: currentTheme.palette.text.primary,
 				}}
 			>
 				<img
@@ -70,7 +70,14 @@ const App = () => {
 				/>
 
 				<Button
-					style={{ position: "absolute", top: "10px", left: "10px" }}
+					style={{
+						position: "absolute",
+						top: "10px",
+						left: "10px",
+						height: "60px",
+						fontSize: "3rem",
+						backgroundColor: "transparent",
+					}}
 					onClick={() => setDrawerOpen(true)}
 				>
 					☰
@@ -89,7 +96,7 @@ const App = () => {
 				<AppDrawer
 					open={drawerOpen}
 					onClose={() => setDrawerOpen(false)}
-					onThemeSelect={handleThemeSelect} // This will pass "Light" or "Dark"
+					onThemeSelect={handleThemeSelect}
 					highScores={highScores}
 				/>
 			</Box>
@@ -98,4 +105,3 @@ const App = () => {
 };
 
 export default App;
-
