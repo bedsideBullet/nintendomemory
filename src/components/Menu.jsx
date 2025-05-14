@@ -39,16 +39,16 @@ const Menu = ({ onCategorySelect }) => {
 							component="button"
 							onClick={() => onCategorySelect(category.name)}
 							sx={{
-								width: "170px", // Set button width larger than image
-								height: "170px", // Set button height larger than image
-								display: "flex", // Use flexbox to center the image
-								justifyContent: "center", // Center horizontally
-								alignItems: "center", // Center vertically
-								border: "none", // No border
-								background: "none", // Transparent background
-								cursor: "pointer", // Pointer cursor on hover
+								width: "170px", 
+								height: "170px", 
+								display: "flex", 
+								justifyContent: "center",
+								alignItems: "center", 
+								border: "none", 
+								background: "none", 
+								cursor: "pointer", 
 								"&:hover": {
-									scale: 1.2, // Hover effect
+									scale: 1.2, 
 								},
 							}}
 						>
@@ -74,3 +74,4 @@ const Menu = ({ onCategorySelect }) => {
 };
 
 export default Menu;
+

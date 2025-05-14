@@ -3,7 +3,6 @@ import { createTheme } from "@mui/material/styles";
 import lightBackgroundImageFile from "./assets/lightBg.png";
 import darkBackgroundImageFile from "./assets/darkBg.png";
 
-// Define the Nintendo Red color
 const nintendoRed = "#E60012";
 
 const burbankFontFamily = "'Burbank Big Condensed Black', sans-serif";
@@ -12,25 +11,23 @@ export const lightTheme = createTheme({
 	palette: {
 		mode: "light",
 		primary: {
-			main: "#ff5722", // Example
+			main: "#ff5722", 
 		},
 		secondary: {
-			main: "#ffc107", // Example
+			main: "#ffc107", 
 		},
 		background: {
-			default: "#f5f5f5", // A light background color
+			default: "#f5f5f5",
 		},
 		text: {
 			primary: nintendoRed,
-			secondary: nintendoRed, // You might adjust this for less prominent text
+			secondary: nintendoRed, 
 		},
 	},
 	typography: {
 		fontFamily: burbankFontFamily,
-		fontWeight: 700, // Attempt to set the default font weight
-		// You can still add variations for headings, etc., with different weights if needed
+		fontWeight: 700, 
 	},
-	// Custom property for background image
 	backgroundImage: `url(${lightBackgroundImageFile})`,
 	components: {
 		MuiButton: {
@@ -51,7 +48,6 @@ export const lightTheme = createTheme({
 				},
 			},
 		},
-		// Override other components as needed
 	},
 });
 
@@ -59,25 +55,24 @@ export const darkTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#00bcd4", // Example
+			main: "#00bcd4", 
 		},
 		secondary: {
-			main: "#ffeb3b", // Example
+			main: "#ffeb3b", 
 		},
 		background: {
-			default: "#303030", // A dark background color
+			default: "#303030", 
 		},
 		text: {
 			primary: nintendoRed,
-			secondary: nintendoRed, // You might adjust this for less prominent text
+			secondary: nintendoRed, 
 		},
 	},
 	typography: {
 		fontFamily: burbankFontFamily,
-		fontWeight: 700, // Attempt to set the default font weight
-		// You can still add variations for headings, etc., with different weights if needed
+		fontWeight: 700, 
+		
 	},
-	// Custom property for background image
 	backgroundImage: `url(${darkBackgroundImageFile})`,
 	components: {
 		MuiButton: {
@@ -98,6 +93,7 @@ export const darkTheme = createTheme({
 				},
 			},
 		},
-		// Override other components as needed
+		
 	},
 });
+

@@ -9,19 +9,21 @@ import {
 import Menu from "./components/Menu";
 import GameBoard from "./components/GameBoard";
 import AppDrawer from "./components/AppDrawer";
-import { lightTheme, darkTheme } from "./themes"; // Updated import
-import nintendoImg from "./assets/nintendo.png";
+import { lightTheme, darkTheme } from "./themes"; 
+import nintendoImgD from "./assets/dNintendo.png";
+import nintendoImgL from "./assets/Nintendo.png";
 
 const App = () => {
-	const [currentTheme, setCurrentTheme] = useState(lightTheme); // Default to light theme
+	const [currentTheme, setCurrentTheme] = useState(lightTheme); 
 	const [selectedCategory, setSelectedCategory] = useState(null);
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	const [highScores, setHighScores] = useState([]);
 
 	const handleCategorySelect = (category) => setSelectedCategory(category);
 
+	const nintendoImg = currentTheme === lightTheme ? nintendoImgL : nintendoImgD
+
 	const handleThemeSelect = (themeName) => {
-		// themeName will be "Light" or "Dark"
 		switch (themeName) {
 			case "Light":
 				setCurrentTheme(lightTheme);
@@ -42,22 +44,20 @@ const App = () => {
 	return (
 		<ThemeProvider theme={currentTheme}>
 			<CssBaseline />{" "}
-			{/* CssBaseline applies theme.palette.background.default */}
 			<Box
 				style={{
 					textAlign: "center",
 					padding: "20px",
-					backgroundImage: currentTheme.backgroundImage, // Apply background image from theme
-					backgroundSize: "cover", // Cover the entire area
-					backgroundPosition: "center", // Center the image
-					backgroundRepeat: "no-repeat", // Do not repeat the image
-					backgroundAttachment: "fixed", // Keep background fixed during scroll
-					minHeight: "100vh", // Ensure Box takes at least full viewport height
-					transition: "background-image 0.3s ease-in-out", // Smooth transition for background change
-					color: currentTheme.palette.text.primary, // Ensure text color contrasts with background
+					backgroundImage: currentTheme.backgroundImage, 
+					backgroundSize: "cover", 
+					backgroundPosition: "center", 
+					backgroundRepeat: "no-repeat", 
+					backgroundAttachment: "fixed", 
+					minHeight: "100vh",
+					transition: "background-image 0.3s ease-in-out", 
+					color: currentTheme.palette.text.primary, 
 				}}
 			>
-				{/* App Title */}
 				<img
 					src={nintendoImg}
 					alt="logo"
@@ -86,7 +86,6 @@ const App = () => {
 					<Menu onCategorySelect={handleCategorySelect} />
 				)}
 
-				{/* Drawer */}
 				<AppDrawer
 					open={drawerOpen}
 					onClose={() => setDrawerOpen(false)}
@@ -99,3 +98,4 @@ const App = () => {
 };
 
 export default App;
+
