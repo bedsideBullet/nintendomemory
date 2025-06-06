@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 
-import switchImg from "../assets/mainImages/switch.png";
+import switchImg from "../assets/MainImages/switch.png";
 
 const Card = ({ image, category, id, isFlipped, onClick }) => {
 	const theme = useTheme();
