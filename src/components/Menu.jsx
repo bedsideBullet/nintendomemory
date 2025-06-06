@@ -6,7 +6,7 @@ import dkLogo from "../assets/DK/dkLogo.png";
 import pokemonLogo from "../assets/Pokemon/pokemonLogo.png";
 import kirbyLogo from "../assets/kirby/kirbyLogo.png";
 import switchImg from "../assets/MainImages/switch.png";
-import zeldaLogo from "../assets/zelda/zeldaLogo.png";
+import zeldaLogo from "../assets/Zelda/zeldaLogo.png";
 import mainImage from "../assets/MainImages/category.png";
 
 const Menu = ({ onCategorySelect }) => {
