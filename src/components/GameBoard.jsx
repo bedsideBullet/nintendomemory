@@ -9,9 +9,10 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 	const matchPoint = 200;
 	const misMatch = -50;
 	const timeBonus = 100;
-	const gameTimerDuration = 60;
+	const gameTimerDuration = 30;
 	const timerReducer = 5;
 	const minTimerDuration = 10;
+	const nintendoRed = "#E60012";
 
 	const [gameTokens, setGameTokens] = useState([]);
 	const [flippedCards, setFlippedCards] = useState([]);
@@ -25,12 +26,23 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 	const [initialScore, setInitialScore] = useState(0);
 	const timerIntervalRef = useRef(null);
 	const theme = useTheme();
-	const isLightTheme = theme.palette.mode === "light";
+	const isLightTheme = theme?.palette?.mode === "light" || true;
+	const bottomRef = useRef(null);
 
 	const effectiveTimerDuration = Math.max(
 		gameTimerDuration - (level - 1) * timerReducer,
 		minTimerDuration
 	);
+
+	const calculateScore = () => {
+		const baseScore =
+			initialScore +
+			matchedIds.length * matchPoint +
+			incorrectAttempts * misMatch;
+		return matchedIds.length === 8
+			? baseScore + timeLeft * timeBonus
+			: baseScore;
+	};
 
 	useEffect(() => {
 		const storedHighScores = localStorage.getItem("highScores");
@@ -64,8 +76,9 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 				allowOutsideClick: false,
 				allowEscapeKey: false,
 			}).then((result) => {
+				let newHighScores = highScores;
 				if (result.isConfirmed && result.value) {
-					const newHighScores = [
+					newHighScores = [
 						...highScores,
 						{ name: result.value.toUpperCase(), score, level },
 					]
@@ -92,18 +105,27 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 			);
 		}
 
+		if (filteredTokens.length < 8) {
+			Swal.fire({
+				title: "Error",
+				text: "Not enough tokens available for this category!",
+				confirmButtonText: "Menu",
+			}).then(() => onEndGame(highScores));
+			return;
+		}
+
 		const selectedTokens = [];
 		while (selectedTokens.length < 8 && filteredTokens.length > 0) {
 			const randomIndex = Math.floor(Math.random() * filteredTokens.length);
 			selectedTokens.push(filteredTokens.splice(randomIndex, 1)[0]);
 		}
 
-		const duplicatedTokens = [...selectedTokens, ...selectedTokens];
-		const shuffledTokens = duplicatedTokens
-			.map((token) => ({ ...token }))
-			.sort(() => Math.random() - 0.5)
-			.map((token, index) => ({ ...token, uniqueIndex: index }));
+		const duplicatedTokens = selectedTokens.flatMap((token, i) => [
+			{ ...token, uniqueIndex: i },
+			{ ...token, uniqueIndex: i + selectedTokens.length },
+		]);
 
+		const shuffledTokens = duplicatedTokens.sort(() => Math.random() - 0.5);
 		setGameTokens(shuffledTokens);
 		setFlippedCards([]);
 		setMatchedIds([]);
@@ -117,47 +139,43 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 	useEffect(() => {
 		resetGame();
 
-		const showCardsPreview = () => {
-			setIsPreviewPhase(true);
-			const previewTimeout = setTimeout(() => {
-				setIsPreviewPhase(false);
-				setIsGameStarted(true);
-				setTimeLeft(effectiveTimerDuration);
-				timerIntervalRef.current = setInterval(() => {
-					setTimeLeft((prevTime) => {
-						if (prevTime <= 1) {
-							clearInterval(timerIntervalRef.current);
-							setGameOver(true);
-							return 0;
-						}
-						return prevTime - 1;
-					});
-				}, 1000);
-			}, 3000);
-			return () => clearTimeout(previewTimeout);
-		};
+		const previewTimeout = setTimeout(() => {
+			setIsPreviewPhase(false);
+			setIsGameStarted(true);
+			setTimeLeft(effectiveTimerDuration);
+			timerIntervalRef.current = setInterval(() => {
+				setTimeLeft((prevTime) => {
+					if (prevTime <= 1) {
+						clearInterval(timerIntervalRef.current);
+						setGameOver(true);
+						return 0;
+					}
+					return prevTime - 1;
+				});
+			}, 1000);
+		}, 3000);
 
-		const cleanupPreview = showCardsPreview();
 		Swal.fire({
 			title: "Get Ready!",
 			html: "The Game is About To Start!",
 			timer: 3000,
 			timerProgressBar: true,
-			backdrop: "rgba(0, 0, 0, 0.3)",
-			showConfirmButton: false,
-			didOpen: () => {
-				const popup = Swal.getPopup();
-				popup.style.opacity = "0.8";
-				popup.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
-				popup.style.backdropFilter = "blur(2px)";
-				popup.style.height = "300px";
+			customClass: {
+				popup: "swal-preview-popup",
 			},
 			allowOutsideClick: false,
 			allowEscapeKey: false,
 		});
 
+		const scrollTimeout = setTimeout(() => {
+			if (bottomRef.current) {
+				bottomRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+			}
+		}, 100);
+
 		return () => {
-			cleanupPreview();
+			clearTimeout(previewTimeout);
+			clearTimeout(scrollTimeout);
 			if (timerIntervalRef.current) {
 				clearInterval(timerIntervalRef.current);
 			}
@@ -190,20 +208,19 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 					if (timerIntervalRef.current) {
 						clearInterval(timerIntervalRef.current);
 					}
-					const baseScore =
-						newMatchedIds.length * matchPoint + incorrectAttempts * misMatch;
-					const timeBonusPoints = timeLeft * timeBonus;
-					const finalScore = initialScore + baseScore + timeBonusPoints;
+					const finalScore = calculateScore();
 					Swal.fire({
 						title: "🎉 Congrats, you won!",
 						html: `
-							You've matched all the cards!<br><br>
-							Matched points: ${baseScore}<br>
-							+<br>
-							Time Bonus: ${timeBonusPoints}<br>
-							=<br>
-							Final Score: ${finalScore}
-						`,
+              You've matched all the cards!<br><br>
+              Matched points: ${
+								matchedIds.length * matchPoint + incorrectAttempts * misMatch
+							}<br>
+              +<br>
+              Time Bonus: ${timeLeft * timeBonus}<br>
+              =<br>
+              Final Score: ${finalScore}
+            `,
 						showCancelButton: true,
 						confirmButtonText: "Continue",
 						cancelButtonText: "Menu",
@@ -232,16 +249,9 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 		);
 	};
 
-	const baseScore =
-		initialScore +
-		matchedIds.length * matchPoint +
-		incorrectAttempts * misMatch;
-
-	const finalScore =
-		matchedIds.length === 8 ? baseScore + timeLeft * timeBonus : baseScore;
-
 	useEffect(() => {
 		if (gameOver && matchedIds.length < 8) {
+			const finalScore = calculateScore();
 			Swal.fire({
 				title: "💀 Game Over!",
 				html: `Time's up!<br><strong>Final Score:</strong> ${finalScore}`,
@@ -250,12 +260,13 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 				checkAndUpdateHighScore(finalScore, level);
 			});
 		}
-	}, [gameOver, matchedIds, timeLeft, finalScore, level]);
+	}, [gameOver, matchedIds, timeLeft, level]);
 
 	const handleEndGame = () => {
 		if (timerIntervalRef.current) {
 			clearInterval(timerIntervalRef.current);
 		}
+		const finalScore = calculateScore();
 		checkAndUpdateHighScore(finalScore, level);
 	};
 
@@ -270,12 +281,17 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 		>
 			{gameTokens.length > 0 && (
 				<Button
-					variant="outlined"
+					variant="contained"
 					color="error"
 					onClick={handleEndGame}
-					style={{ alignSelf: "flex-end", marginBottom: "10px" }}
+					style={{
+						alignSelf: "flex-end",
+						marginBottom: "10px",
+						backgroundColor: nintendoRed,
+						color: "white",
+					}}
 				>
-					End Game
+					Main Menu
 				</Button>
 			)}
 
@@ -311,8 +327,8 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 					>
 						Time: {timeLeft}s | Level: {level} | Score:{" "}
 						{gameOver && matchedIds.length === 8
-							? `Final: ${finalScore}`
-							: baseScore}
+							? `Final: ${calculateScore()}`
+							: calculateScore()}
 					</Typography>
 				)}
 
@@ -327,6 +343,7 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 					/>
 				))}
 			</div>
+			<div ref={bottomRef} />
 		</div>
 	);
 };

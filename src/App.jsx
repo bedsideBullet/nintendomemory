@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	ThemeProvider,
 	CssBaseline,
@@ -11,7 +11,7 @@ import GameBoard from "./components/GameBoard";
 import AppDrawer from "./components/AppDrawer";
 import { lightTheme, darkTheme } from "./themes";
 import nintendoImgD from "./assets/dNintendo.png";
-import nintendoImgL from "./assets/Nintendo.png";
+import nintendoImgL from "./assets/nintendo.png";
 
 const App = () => {
 	const [currentTheme, setCurrentTheme] = useState(lightTheme);
@@ -22,6 +22,15 @@ const App = () => {
 	const handleCategorySelect = (category) => setSelectedCategory(category);
 
 	const nintendoImg = currentTheme === lightTheme ? nintendoImgL : nintendoImgD;
+
+	useEffect(() => {
+		const storedHighScores = localStorage.getItem("highScores");
+		if (storedHighScores) {
+			setHighScores(JSON.parse(storedHighScores));
+		} else {
+			setHighScores([]);
+		}
+	}, [setHighScores]);
 
 	const handleThemeSelect = (themeName) => {
 		switch (themeName) {

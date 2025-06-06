@@ -11,22 +11,22 @@ export const lightTheme = createTheme({
 	palette: {
 		mode: "light",
 		primary: {
-			main: "#ff5722", 
+			main: "#ff5722",
 		},
 		secondary: {
-			main: "#ffc107", 
+			main: "#ffc107",
 		},
 		background: {
 			default: "#f5f5f5",
 		},
 		text: {
 			primary: nintendoRed,
-			secondary: nintendoRed, 
+			secondary: nintendoRed,
 		},
 	},
 	typography: {
 		fontFamily: burbankFontFamily,
-		fontWeight: 700, 
+		fontWeight: 700,
 	},
 	backgroundImage: `url(${lightBackgroundImageFile})`,
 	components: {
@@ -55,23 +55,22 @@ export const darkTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#00bcd4", 
+			main: "#00bcd4",
 		},
 		secondary: {
-			main: "#ffeb3b", 
+			main: "#ffeb3b",
 		},
 		background: {
-			default: "#303030", 
+			default: "#303030",
 		},
 		text: {
 			primary: nintendoRed,
-			secondary: nintendoRed, 
+			secondary: nintendoRed,
 		},
 	},
 	typography: {
 		fontFamily: burbankFontFamily,
-		fontWeight: 700, 
-		
+		fontWeight: 700,
 	},
 	backgroundImage: `url(${darkBackgroundImageFile})`,
 	components: {
@@ -93,7 +92,5 @@ export const darkTheme = createTheme({
 				},
 			},
 		},
-		
 	},
 });
-
