@@ -5,9 +5,9 @@ import marioLogo from "../assets/mario/marioLogo.png";
 import dkLogo from "../assets/DK/dkLogo.png";
 import pokemonLogo from "../assets/Pokemon/pokemonLogo.png";
 import kirbyLogo from "../assets/kirby/kirbyLogo.png";
-import switchImg from "../assets/mainImages/switch.png";
+import switchImg from "../assets/MainImages/switch.png";
 import zeldaLogo from "../assets/zelda/zeldaLogo.png";
-import mainImage from "../assets/mainImages/category.png";
+import mainImage from "../assets/MainImages/category.png";
 
 const Menu = ({ onCategorySelect }) => {
 	const categories = [
