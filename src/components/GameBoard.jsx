@@ -44,15 +44,6 @@ const GameBoard = ({ category, onEndGame, highScores, setHighScores }) => {
 			: baseScore;
 	};
 
-	useEffect(() => {
-		const storedHighScores = localStorage.getItem("highScores");
-		if (storedHighScores) {
-			setHighScores(JSON.parse(storedHighScores));
-		} else {
-			setHighScores([]);
-		}
-	}, [setHighScores]);
-
 	const checkAndUpdateHighScore = (score, level) => {
 		if (
 			highScores.length < 5 ||

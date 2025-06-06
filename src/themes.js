@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
-import lightBackgroundImageFile from "./assets/lightBg.png";
-import darkBackgroundImageFile from "./assets/darkBg.png";
+import lightBackgroundImageFile from "./assets/mainImages/lightBg.png";
+import darkBackgroundImageFile from "./assets/mainImages/darkBg.png";
 
 const nintendoRed = "#E60012";
 
