@@ -1,17 +1,23 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 
+import marioLogo from "./assets/marioLogo.png";
+import dkLogo from "./assets/dkLogo.png";
+import pokemonLogo from "./assets/pokemonLogo.png";
+import kirbyLogo from "./assets/kirbyLogo.png";
+import switchImg from "./assets/switch.png";
+import zeldaLogo from "./assets/zeldaLogo.png";
+import mainImage from "./assets/category.png";
+
 const Menu = ({ onCategorySelect }) => {
 	const categories = [
-		{ name: "Franchise One", image: "src/assets/marioLogo.png" },
-		{ name: "Franchise Two", image: "src/assets/dkLogo.png" },
-		{ name: "Franchise Three", image: "src/assets/kirbyLogo.png" },
-		{ name: "Franchise Four", image: "src/assets/zeldaLogo.png" },
-		{ name: "Franchise Five", image: "src/assets/pokemonLogo.png" },
-		{ name: "All Games", image: "src/assets/switch.png" },
+		{ name: "Franchise One", image: marioLogo },
+		{ name: "Franchise Two", image: dkLogo },
+		{ name: "Franchise Three", image: kirbyLogo },
+		{ name: "Franchise Four", image: zeldaLogo },
+		{ name: "Franchise Five", image: pokemonLogo },
+		{ name: "All Games", image: switchImg },
 	];
-
-	const mainImage = "src/assets/category.png";
 
 	return (
 		<div
@@ -39,16 +45,16 @@ const Menu = ({ onCategorySelect }) => {
 							component="button"
 							onClick={() => onCategorySelect(category.name)}
 							sx={{
-								width: "170px", 
-								height: "170px", 
-								display: "flex", 
+								width: "170px",
+								height: "170px",
+								display: "flex",
 								justifyContent: "center",
-								alignItems: "center", 
-								border: "none", 
-								background: "none", 
-								cursor: "pointer", 
+								alignItems: "center",
+								border: "none",
+								background: "none",
+								cursor: "pointer",
 								"&:hover": {
-									scale: 1.2, 
+									scale: 1.2,
 								},
 							}}
 						>
@@ -74,4 +80,3 @@ const Menu = ({ onCategorySelect }) => {
 };
 
 export default Menu;
-
