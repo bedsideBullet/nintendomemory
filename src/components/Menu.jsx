@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 
-import marioLogo from "src/assets/marioLogo.png";
+import marioLogo from "../assets/marioLogo.png";
 import dkLogo from "./assets/dkLogo.png";
 import pokemonLogo from "./assets/pokemonLogo.png";
 import kirbyLogo from "./assets/kirbyLogo.png";
