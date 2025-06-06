@@ -10,8 +10,8 @@ import Menu from "./components/Menu";
 import GameBoard from "./components/GameBoard";
 import AppDrawer from "./components/AppDrawer";
 import { lightTheme, darkTheme } from "./themes";
-import nintendoImgD from "./assets/mainImages/dNintendo.png";
-import nintendoImgL from "./assets/mainImages/nintendo.png";
+import nintendoImgD from "./assets/MainImages/dNintendo.png";
+import nintendoImgL from "./assets/MainImages/nintendo.png";
 
 const App = () => {
 	const [currentTheme, setCurrentTheme] = useState(lightTheme);
