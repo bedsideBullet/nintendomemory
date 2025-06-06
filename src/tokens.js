@@ -41,18 +41,18 @@ import kirby11 from "./assets/kirby/kirby11.png";
 import kirby12 from "./assets/kirby/kirby12.png";
 
 // --- Import local images for Category 4 ---
-import pokemon1 from "./assets/pokemon/pokemon1.png";
-import pokemon2 from "./assets/pokemon/pokemon2.png";
-import pokemon3 from "./assets/pokemon/pokemon3.png";
-import pokemon4 from "./assets/pokemon/pokemon4.png";
-import pokemon5 from "./assets/pokemon/pokemon5.png";
-import pokemon6 from "./assets/pokemon/pokemon6.png";
-import pokemon7 from "./assets/pokemon/pokemon7.png";
-import pokemon8 from "./assets/pokemon/pokemon8.png";
-import pokemon9 from "./assets/pokemon/pokemon9.png";
-import pokemon10 from "./assets/pokemon/pokemon10.png";
-import pokemon11 from "./assets/pokemon/pokemon11.png";
-import pokemon12 from "./assets/pokemon/pokemon12.png";
+import pokemon1 from "./assets/Pokemon/pokemon1.png";
+import pokemon2 from "./assets/Pokemon/pokemon2.png";
+import pokemon3 from "./assets/Pokemon/pokemon3.png";
+import pokemon4 from "./assets/Pokemon/pokemon4.png";
+import pokemon5 from "./assets/Pokemon/pokemon5.png";
+import pokemon6 from "./assets/Pokemon/pokemon6.png";
+import pokemon7 from "./assets/Pokemon/pokemon7.png";
+import pokemon8 from "./assets/Pokemon/pokemon8.png";
+import pokemon9 from "./assets/Pokemon/pokemon9.png";
+import pokemon10 from "./assets/Pokemon/pokemon10.png";
+import pokemon11 from "./assets/Pokemon/pokemon11.png";
+import pokemon12 from "./assets/Pokemon/pokemon12.png";
 
 // --- Import local images for Category 4 ---
 
