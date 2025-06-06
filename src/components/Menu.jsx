@@ -2,12 +2,12 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 
 import marioLogo from "../assets/marioLogo.png";
-import dkLogo from "./assets/dkLogo.png";
-import pokemonLogo from "./assets/pokemonLogo.png";
-import kirbyLogo from "./assets/kirbyLogo.png";
-import switchImg from "./assets/switch.png";
-import zeldaLogo from "./assets/zeldaLogo.png";
-import mainImage from "./assets/category.png";
+import dkLogo from "../assets/dkLogo.png";
+import pokemonLogo from "../assets/pokemonLogo.png";
+import kirbyLogo from "../assets/kirbyLogo.png";
+import switchImg from "../assets/switch.png";
+import zeldaLogo from "../assets/zeldaLogo.png";
+import mainImage from "../assets/category.png";
 
 const Menu = ({ onCategorySelect }) => {
 	const categories = [
