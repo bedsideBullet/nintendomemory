@@ -1,125 +1,63 @@
+// --- Import local images for Category 1 ---
+import mario from "./assets/mario.png";
+import luigi from "./assets/luigi.png";
+import peach from "./assets/peach.png";
+import toad from "./assets/toad.png";
+import yoshi from "./assets/yoshi.png";
+import Bowser from "./assets/Bowser.png";
+import goomba from "./assets/goomba.png";
+import koopaTroopa from "./assets/koopaTroopa.png";
+import fireFlower from "./assets/fireFlower.png";
+import kingBobom from "./assets/kingBobom.png";
+import piranhaPlant from "./assets/piranhaPlant.png";
+import star from "./assets/star.png";
+
+// --- Import local images for Category 2 ---
+import krankyKong from "./assets/krankyKong.png";
+import nLetter from "./assets/nLetter.png";
+import oLetter from "./assets/oLetter.png";
+import pirateKRool from "./assets/pirateKRool.png";
+import donkeyKong from "./assets/donkeyKong.png";
+import diddyKong from "./assets/diddyKong.png";
+import kLetter from "./assets/kLetter.png";
+import gLetter from "./assets/gLetter.png";
+import dkcBalloons from "./assets/dkcBalloons.png";
+import funkyKong from "./assets/funkyKong.png";
+import babyKong from "./assets/babyKong.png";
+import banannaBird from "./assets/banannaBird.png";
+
+// --- Other categories use external URLs ---
+
 const tokens = [
 	// Category 1
-	{ id: 1, image: "src/assets/mario.png", category: "1" },
-	{
-		id: 2,
-		image: "src/assets/luigi.png",
-		category: "1",
-	},
-	{
-		id: 3,
-		image: "src/assets/peach.png",
-		category: "1",
-	},
-	{
-		id: 4,
-		image: "src/assets/toad.png",
-		category: "1",
-	},
-	{
-		id: 5,
-		image: "src/assets/yoshi.png",
-		category: "1",
-	},
-	{
-		id: 6,
-		image: "src/assets/Bowser.png",
-		category: "1",
-	},
-	{
-		id: 7,
-		image: "src/assets/goomba.png",
-		category: "1",
-	},
-	{
-		id: 8,
-		image: "src/assets/koopaTroopa.png",
-		category: "1",
-	},
-	{
-		id: 9,
-		image: "src/assets/fireFlower.png",
-		category: "1",
-	},
-	{
-		id: 10,
-		image: "src/assets/kingBobom.png",
-		category: "1",
-	},
-	{
-		id: 11,
-		image: "src/assets/piranhaPlant.png",
-		category: "1",
-	},
-	{
-		id: 12,
-		image: "src/assets/star.png",
-		category: "1",
-	},
+	{ id: 1, image: mario, category: "1" },
+	{ id: 2, image: luigi, category: "1" },
+	{ id: 3, image: peach, category: "1" },
+	{ id: 4, image: toad, category: "1" },
+	{ id: 5, image: yoshi, category: "1" },
+	{ id: 6, image: Bowser, category: "1" },
+	{ id: 7, image: goomba, category: "1" },
+	{ id: 8, image: koopaTroopa, category: "1" },
+	{ id: 9, image: fireFlower, category: "1" },
+	{ id: 10, image: kingBobom, category: "1" },
+	{ id: 11, image: piranhaPlant, category: "1" },
+	{ id: 12, image: star, category: "1" },
 
 	// Category 2
-	{
-		id: 13,
-		image: "src/assets/krankyKong.png",
-		category: "2",
-	},
-	{
-		id: 14,
-		image: "src/assets/nLetter.png",
-		category: "2",
-	},
-	{
-		id: 15,
-		image: "src/assets/oLetter.png",
-		category: "2",
-	},
-	{
-		id: 16,
-		image: "src/assets/pirateKRool.png",
-		category: "2",
-	},
-	{
-		id: 17,
-		image: "src/assets/donkeyKong.png",
-		category: "2",
-	},
-	{
-		id: 18,
-		image: "src/assets/diddyKong.png",
-		category: "2",
-	},
-	{
-		id: 19,
-		image: "src/assets/kLetter.png",
-		category: "2",
-	},
-	{
-		id: 20,
-		image: "src/assets/gLetter.png",
-		category: "2",
-	},
-	{
-		id: 21,
-		image: "src/assets/dkcBalloons.png",
-		category: "2",
-	},
-	{
-		id: 22,
-		image: "src/assets/funkyKong.png",
-		category: "2",
-	},
-	{
-		id: 23,
-		image: "src/assets/babyKong.png",
-		category: "2",
-	},
-	{
-		id: 24,
-		image: "src/assets/banannaBird.png",
-		category: "2",
-	},
+	{ id: 13, image: krankyKong, category: "2" },
+	{ id: 14, image: nLetter, category: "2" },
+	{ id: 15, image: oLetter, category: "2" },
+	{ id: 16, image: pirateKRool, category: "2" },
+	{ id: 17, image: donkeyKong, category: "2" },
+	{ id: 18, image: diddyKong, category: "2" },
+	{ id: 19, image: kLetter, category: "2" },
+	{ id: 20, image: gLetter, category: "2" },
+	{ id: 21, image: dkcBalloons, category: "2" },
+	{ id: 22, image: funkyKong, category: "2" },
+	{ id: 23, image: babyKong, category: "2" },
+	{ id: 24, image: banannaBird, category: "2" },
 
-	// Category 3
+	// Category 3 (external images)
 	{
 		id: 25,
 		image: "https://via.placeholder.com/150?text=Token+1",
@@ -181,7 +119,7 @@ const tokens = [
 		category: "3",
 	},
 
-	// Category 4
+	// Category 4 (external images)
 	{
 		id: 37,
 		image: "https://via.placeholder.com/150?text=Token+1",
@@ -243,7 +181,7 @@ const tokens = [
 		category: "4",
 	},
 
-	// Category 5
+	// Category 5 (external images)
 	{
 		id: 49,
 		image: "https://via.placeholder.com/150?text=Token+1",
